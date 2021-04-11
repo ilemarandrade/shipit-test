@@ -1,13 +1,13 @@
 import React from "react";
 import LayoutApp from "../layout/LayoutApp";
-import Table from "../components/Table/Table";
+import TableWithPagination from "../components/Table/TableWithPagination";
 
-const ViewQuote = ({ data }) => {
-  console.log("esta en viewQUote");
+const ViewQuote = ({ data, valuesHead }) => {
+  console.log("esta en viewQUote", data);
   return (
     <>
       <LayoutApp
-        contentMain={<Table data={data} />}
+        contentMain={<TableWithPagination data={data} {...{ valuesHead }} />}
         title="Destinos Disponibles"
       />
     </>
