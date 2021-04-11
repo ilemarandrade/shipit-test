@@ -1,10 +1,11 @@
 import React from "react";
-import Input from "../Input/Input";
+import Input from "../Inputs/Input";
 import Button from "../Button";
 import formikHook from "../../hooks/formikHook";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import styles from "./form.module.css";
+import Select from "../Inputs/Select";
 
 const Form = ({ dataInputs = [] }) => {
   const { initialValues, validations } = formikHook(dataInputs);
@@ -26,6 +27,7 @@ const Form = ({ dataInputs = [] }) => {
     >
       <form className={styles.form} onSubmit={formik.handleSubmit}>
         <div className="mb-5">{inputs}</div>
+        <Select />
         <Button {...{ type: "submit", width: "w-full" }} />
       </form>
     </div>
