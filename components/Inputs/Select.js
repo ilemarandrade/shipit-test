@@ -58,24 +58,6 @@ const Select = ({ data = propsSelect.data, width = "100%", validator }) => {
       </div>
     </div>
   );
-  /* return (
-    <div>
-      <label
-        id="listbox-label"
-        className="block text-sm font-medium text-gray-700"
-      >
-        Assigned to
-      </label>
-      <select>
-        <options>uno</options>
-        <options>uno</options>
-        <options>uno</options>
-        <options>uno</options>
-        <options>uno</options>
-        <options>uno</options>
-      </select>
-    </div>
-  ); */
 };
 
 export default Select;
