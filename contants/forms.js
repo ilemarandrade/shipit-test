@@ -227,6 +227,41 @@ const destinyQuote = {
     },
   ],
 };
+const login = {
+  title: "",
+  inputs: [
+    {
+      name: "email",
+      label: "Email",
+      placeholder: "Escriba su correo electronico",
+      type: "Text",
+      value: "",
+      validations: [
+        {
+          validation: Yup.string()
+            .max(15, "Must be 15 characters or less")
+            .required("Required"),
+        },
+      ],
+    },
+    {
+      name: "password",
+      label: "Contraseña",
+      placeholder: "Escriba su contraseña",
+      type: "password",
+      value: "",
+      validations: [
+        {
+          validation: Yup.string()
+            .max(15, "Must be 15 characters or less")
+            .required("Required"),
+        },
+      ],
+    },
+  ],
+};
 export const formQuote = [sizes, origin, destinyQuote];
 
 export const formCreateShipment = [origin, destinyShipping, sizes];
+
+export const formLogin = [login];
