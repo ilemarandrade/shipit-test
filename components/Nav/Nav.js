@@ -1,21 +1,25 @@
 import React from "react";
 import Link from "next/link";
+import "./nav.module.css";
 import { Logo, Items } from "./const";
 
 const Nav = ({ items = Items }) => {
-  let itemsOfNav = items.map((e) => {
+  let itemsOfNav = items.map((e, i) => {
     return (
       <Link href={e.path}>
-        <a className="text-indigo-900 hover:text-blue-400 ml-7 text-sm">
+        <a
+          key={i + e.label}
+          className="text-indigo-900 hover:text-blue-400 mr-7 text-sm"
+        >
           {e.label}
         </a>
       </Link>
     );
   });
   return (
-    <div className="flex justify-between">
+    <div id="Nav" className="flex justify-between items-center">
       <Link href="/">
-        <img className="ml-7" style={{ width: Logo.width }} src={Logo.url} />
+        <img id="logo" className="ml-7" src={Logo.url} />
       </Link>
 
       <div className="flex items-center">{itemsOfNav}</div>
