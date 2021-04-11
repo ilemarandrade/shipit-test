@@ -16,11 +16,23 @@ const Form = ({ dataInputs = [] }) => {
       alert(JSON.stringify(values, null, 2));
     },
   });
-  const inputs = dataInputs.map((input, i) => {
-    return input.type == "select" ? (
-      <Select key={i} data={input} validator={formik} />
-    ) : (
-      <Input key={i} data={input} validator={formik} width="100%" />
+
+  const inputs = dataInputs.map((sectionform, i) => {
+    console.log(sectionform);
+
+    return (
+      <>
+        <div className="text-center font-semibold text-gray-700">
+          {sectionform.title}
+        </div>
+        {sectionform.inputs.map((input) => {
+          return input.type == "select" ? (
+            <Select key={i} data={input} validator={formik} />
+          ) : (
+            <Input key={i} data={input} validator={formik} width="100%" />
+          );
+        })}
+      </>
     );
   });
   console.log(dataInputs);
