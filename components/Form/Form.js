@@ -17,9 +17,13 @@ const Form = ({ dataInputs = [] }) => {
     },
   });
   const inputs = dataInputs.map((input, i) => {
-    return <Input key={i} data={input} validator={formik} width="100%" />;
+    return input.type == "select" ? (
+      <Select key={i} data={input} validator={formik} />
+    ) : (
+      <Input key={i} data={input} validator={formik} width="100%" />
+    );
   });
-  //console.log(formik);
+  console.log(dataInputs);
   return (
     <div
       id={styles.containerForm}
@@ -27,7 +31,6 @@ const Form = ({ dataInputs = [] }) => {
     >
       <form className={styles.form} onSubmit={formik.handleSubmit}>
         <div className="mb-5">{inputs}</div>
-        <Select />
         <Button {...{ type: "submit", width: "w-full" }} />
       </form>
     </div>
