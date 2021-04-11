@@ -28,11 +28,10 @@ const propsSelect = {
   width: "50%",
   formik: {},
 };
-console.log(propsSelect);
 const Select = ({ data = propsSelect.data, width = "100%", validator }) => {
   console.log(validator, data.placeholder);
   const itemsOptions = data.options.map((item) => {
-    return <option value={item.value}>{item.label}</option>;
+    return <option value={item.value}>{item.name}</option>;
   });
   return (
     <div className="mb-5" style={{ width: width }}>
@@ -58,24 +57,6 @@ const Select = ({ data = propsSelect.data, width = "100%", validator }) => {
       </div>
     </div>
   );
-  /* return (
-    <div>
-      <label
-        id="listbox-label"
-        className="block text-sm font-medium text-gray-700"
-      >
-        Assigned to
-      </label>
-      <select>
-        <options>uno</options>
-        <options>uno</options>
-        <options>uno</options>
-        <options>uno</options>
-        <options>uno</options>
-        <options>uno</options>
-      </select>
-    </div>
-  ); */
 };
 
 export default Select;
