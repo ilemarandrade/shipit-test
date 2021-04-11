@@ -9,7 +9,7 @@ const ViewCreateShipment = () => {
     <>
       <LayoutApp
         contentMain={<Form dataInputs={formCreateShipment} />}
-        title={"Creador de envio"}
+        title="Creador de envio:"
       />
     </>
   );

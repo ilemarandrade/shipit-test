@@ -7,7 +7,7 @@ const LayoutApp = ({ contentMain = <></>, title }) => {
   return (
     <div className="w-100 h-100">
       <Nav />
-      <Main {...{ children: contentMain, title: title }} />
+      <Main {...{ children: contentMain, title }} />
     </div>
   );
 };

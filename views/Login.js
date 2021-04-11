@@ -1,15 +1,16 @@
 import React from "react";
 import Form from "../components/Form/Form";
 import LayoutApp from "../layout/LayoutApp";
-import { formQuote } from "../contants/forms";
+import { formLogin } from "../contants/forms";
 
 const ViewQuote = () => {
   console.log("esta en viewQUote");
+
   return (
     <>
       <LayoutApp
-        contentMain={<Form dataInputs={formQuote} />}
-        title={"Cotizacion de envio:"}
+        contentMain={<Form dataInputs={formLogin} width="30%" />}
+        title={""}
       />
     </>
   );
