@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Home from "../views/Home";
+import ViewQuote from "../views/Quote";
 
 export default function Quote() {
   return (
@@ -8,7 +8,7 @@ export default function Quote() {
         <title>Shipit</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Home />
+      <ViewQuote />
     </div>
   );
 }

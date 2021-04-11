@@ -8,7 +8,7 @@ const ViewQuote = ({ data, valuesHead }) => {
     <>
       <LayoutApp
         contentMain={<TableWithPagination data={data} {...{ valuesHead }} />}
-        title="Destinos Disponibles"
+        title="Destinos Disponibles:"
       />
     </>
   );
