@@ -1,27 +1,33 @@
 export const couriersAvailables = (data, keys) => {
   let result = [];
-  //console.log(data, keys);
+  //console.log("este es en el formateo", data);
   data.forEach((e) => {
-    let courriers;
     keys.forEach((key) => {
       if (typeof e[key] == "object") {
-        //console.log("soyobject", courriers);
-        courriers = Object.keys(e[key]).length;
+        let courriers = "";
+        for (let i in e[key]) {
+          //console.log(e[key][i] + "//" + e.name);
+          if (e[key][i] === e.name) {
+            //courriers += Object.entries(e[key])[0][0] + " ";
+          }
+        }
+        // console.log(courriers);
       }
     });
 
-    return result.push({ name: e.name, couriers_availables: courriers });
+    return result.push({ name: e.name, couriers_availables: " courriers" });
   });
-  console.log(result);
+  // console.log(result);
   return result;
 };
 
-export const communes = (data, keys) => {
+export const communesNameId = (data) => {
   let result = [];
-  //console.log(data, keys);
-  data.forEach((e) => {
-    return result.push({ name: e.name, id: e.id });
-  });
-  console.log(result);
+  try {
+    if (data.length > 0)
+      data.forEach((e) => {
+        return result.push({ name: e.name, id: e.id });
+      });
+  } catch {}
   return result;
 };

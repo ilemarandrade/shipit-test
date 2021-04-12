@@ -1,0 +1,16 @@
+#Nav {
+  height: 10vh;
+  width: 100vw;
+}
+#logo {
+  height: 2.5em;
+  width: 6em;
+}
+#menuDesktop {
+  display: none;
+}
+@media (min-width: 700px) {
+  #menuDesktop {
+    display: flex;
+  }
+}

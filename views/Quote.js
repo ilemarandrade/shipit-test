@@ -4,7 +4,6 @@ import LayoutApp from "../layout/LayoutApp";
 import { formQuote } from "../contants/forms";
 
 const ViewQuote = () => {
-  console.log("esta en viewQUote");
   return (
     <>
       <LayoutApp

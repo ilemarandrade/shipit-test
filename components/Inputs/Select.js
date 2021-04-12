@@ -1,37 +1,12 @@
 import React from "react";
 import styles from "./inputs.module.css";
-
-const propsSelect = {
-  data: {
-    label: "Nombre",
-    id: "name",
-    placeholder: "Selecciona el nombre",
-    options: [
-      {
-        value: "1",
-        label: "valor1",
-      },
-      {
-        value: "2",
-        label: "valor2",
-      },
-      {
-        value: "3",
-        label: "valor3",
-      },
-      {
-        value: "4",
-        label: "valor4",
-      },
-    ],
-  },
-  width: "50%",
-  formik: {},
-};
 const Select = ({ data = propsSelect.data, width = "100%", validator }) => {
-  console.log(validator, data.placeholder);
-  const itemsOptions = data.options.map((item) => {
-    return <option value={item.value}>{item.name}</option>;
+  const itemsOptions = data.options.map((item, i) => {
+    return (
+      <option key={i + item.value} value={item.value}>
+        {item.name}
+      </option>
+    );
   });
   return (
     <div className="mb-5" style={{ width: width }}>

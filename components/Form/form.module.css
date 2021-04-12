@@ -1,0 +1,16 @@
+#containerForm {
+  width: 100vw;
+  min-height: 90vh;
+}
+.form {
+  width: 100%;
+  border-radius: 0.2em;
+  padding: 10vw 8vw;
+  background: white;
+}
+@media (min-width: 700px) {
+  .form {
+    width: 40%;
+    padding: 2em 3em;
+  }
+}

@@ -4,7 +4,6 @@ import LayoutApp from "../layout/LayoutApp";
 import { formCreateShipment } from "../contants/forms";
 
 const ViewCreateShipment = () => {
-  console.log("esta en ViewCreateShipment");
   return (
     <>
       <LayoutApp

@@ -1,9 +1,4 @@
-import { Provider } from "react-redux";
-import "tailwindcss/tailwind.css";
-import store from "../redux/store";
-import withRedux from "next-redux-wrapper";
-
-export async function getStaticProps(context) {
+export async function requestCommunes(context) {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("Accept", "application/vnd.shipit.v4");
@@ -22,26 +17,12 @@ export async function getStaticProps(context) {
   const res = await fetch("https://api.shipit.cl/v/communes", requestOptions);
 
   const data = await res.json();
-  //console.log(data);
+
   if (!data) {
     return {
       notFound: true,
     };
   }
-
-  return {
-    props: { data }, // will be passed to the page component as props
-  };
+  console.log(data);
+  return data;
 }
-function MyApp({ Component, pageProps, data }) {
-  // console.log(data);
-  return (
-    <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>
-  );
-}
-
-const makeStore = () => store;
-
-export default withRedux(makeStore)(MyApp);

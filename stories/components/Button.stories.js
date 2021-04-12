@@ -14,7 +14,7 @@ Primary.args = {
   label: "ENVIAR",
   primary: true,
   sizeDefault: "w-38",
-  click: () => console.log("hola es un evento"),
+  click: () => "",
 };
 
 export const Secondary = Template.bind({});

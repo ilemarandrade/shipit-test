@@ -1,5 +1,9 @@
 import * as Yup from "yup";
+import store from "../redux/store";
+import { communesNameId } from "../handler/formatDataCommunes";
 
+const optionsCommunes = communesNameId(store.getState().communesData.data);
+console.log("//////////COmminesas", optionsCommunes);
 const destinyShipping = {
   title: "Destino",
   inputs: [
@@ -33,7 +37,7 @@ const destinyShipping = {
     },
     {
       name: "complement",
-      label: "Complmento de direccion",
+      label: "Complemento de direccion",
       placeholder: "Escriba piso, departamento...",
       type: "text",
       value: "",
@@ -47,11 +51,11 @@ const destinyShipping = {
     },
     {
       name: "commune_id",
-      label: "Seleccione Comuna",
-      placeholder: "Escriba piso, departamento...",
+      label: "Comuna",
+      placeholder: "Seleccione Comuna",
       type: "select",
       value: "0",
-      options: [],
+      options: optionsCommunes,
       validations: [
         {
           validation: Yup.string()
@@ -178,7 +182,7 @@ const origin = {
       placeholder: "Seleccione el destino del articulo",
       type: "select",
       value: "0",
-      options: [],
+      options: optionsCommunes,
       validations: [
         {
           validation: Yup.string()
@@ -197,8 +201,9 @@ const destinyQuote = {
       label: "Destino",
       placeholder: "Seleccione destino del articulo",
       type: "select",
+      communes: true,
       value: "0",
-      options: [],
+      options: optionsCommunes,
       validations: [
         {
           validation: Yup.string()
@@ -228,7 +233,7 @@ const destinyQuote = {
   ],
 };
 const login = {
-  title: "",
+  title: "Login",
   inputs: [
     {
       name: "email",

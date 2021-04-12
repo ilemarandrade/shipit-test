@@ -5,8 +5,6 @@ export default function formikHook(data) {
     initialValues[element.name] = element.value;
     validations[element.name] = element.validations;
   });
-  //ssss console.log(initialValues, validations);
-
   //return initialValues, validations;
   return { initialValues, validations };
 }
