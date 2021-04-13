@@ -1,7 +1,7 @@
 export const Items = [
   {
     label: "INICIO",
-    path: "/",
+    path: "/home",
   },
   {
     label: "DESTINOS DISPONIBLES",
@@ -15,14 +15,9 @@ export const Items = [
     label: "HACER ENVIO",
     path: "/createShipment",
   },
-  {
-    label: "LOGIN",
-    path: "/login",
-  },
 ];
 
 export const Logo = {
-  url:
-    "https://www.shipit.cl/hs-fs/hubfs/img/shipit-logo.png?width=1000&name=shipit-logo.png",
+  url: "https://www.shipit.cl/hs-fs/hubfs/img/shipit-logo.png?width=1000&name=shipit-logo.png",
   width: "4em",
 };

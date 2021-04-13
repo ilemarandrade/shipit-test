@@ -1,81 +1,35 @@
 import React from "react";
 import styles from "./inputs.module.css";
-
-const propsSelect = {
-  data: {
-    label: "Nombre",
-    id: "name",
-    placeholder: "Selecciona el nombre",
-    options: [
-      {
-        value: "1",
-        label: "valor1",
-      },
-      {
-        value: "2",
-        label: "valor2",
-      },
-      {
-        value: "3",
-        label: "valor3",
-      },
-      {
-        value: "4",
-        label: "valor4",
-      },
-    ],
-  },
-  width: "50%",
-  formik: {},
-};
-console.log(propsSelect);
-const Select = ({ data = propsSelect.data, width = "100%", validator }) => {
-  console.log(validator, data.placeholder);
-  const itemsOptions = data.options.map((item) => {
-    return <option value={item.value}>{item.label}</option>;
+const Select = ({ width = "100%", error, options, label, id, onChange, onBlur, placeholder }) => {
+  const itemsOptions = options.map((item, i) => {
+    return (
+      <option key={i} value={item.id}>
+        {item.name}
+      </option>
+    );
   });
   return (
     <div className="mb-5" style={{ width: width }}>
-      <label
-        htmlFor={data.id}
-        className={`${styles.label} block text-sm font-medium text-gray-700`}
-      >
-        {data.label}
+      <label htmlFor={id} className={`${label} block text-sm font-medium text-gray-700`}>
+        {label}
       </label>
 
-      <div
-        className={`${styles.inputContainer} mt-1 relative rounded-md shadow-sm`}
-      >
+      <div className={`${styles.inputContainer} mt-1 relative rounded-md shadow-sm`}>
         <select
-          id={data.id}
-          name={data.id}
-          value="0"
+          id={id}
+          name={id}
+          onChange={onChange}
+          onBlur={onBlur}
+          placeholder={placeholder}
           className="focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
         >
-          <option value="0">{data.placeholder}</option>
+          <option defaultValue>{placeholder}</option>
           {itemsOptions}
         </select>
       </div>
+      {error ? <div className="text-red-600 text-xs">{error}</div> : null}
     </div>
   );
-  /* return (
-    <div>
-      <label
-        id="listbox-label"
-        className="block text-sm font-medium text-gray-700"
-      >
-        Assigned to
-      </label>
-      <select>
-        <options>uno</options>
-        <options>uno</options>
-        <options>uno</options>
-        <options>uno</options>
-        <options>uno</options>
-        <options>uno</options>
-      </select>
-    </div>
-  ); */
 };
 
 export default Select;

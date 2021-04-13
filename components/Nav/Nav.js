@@ -1,28 +1,33 @@
 import React from "react";
 import Link from "next/link";
-import "./nav.module.css";
-import { Logo, Items } from "./const";
+import styles from "./nav.module.css";
+import { Logo } from "./const";
 
-const Nav = ({ items = Items }) => {
-  let itemsOfNav = items.map((e, i) => {
-    return (
-      <Link href={e.path}>
-        <a
-          key={i + e.label}
-          className="text-indigo-900 hover:text-blue-400 mr-7 text-sm"
-        >
-          {e.label}
-        </a>
-      </Link>
-    );
-  });
+const Nav = ({ items = [] }) => {
+  let itemsOfNav;
+
+  items.length > 0 ? (
+    (itemsOfNav = items.map((e, i) => {
+      return (
+        <Link key={i + e.label} href={e.path}>
+          <a className="text-indigo-900 hover:text-blue-400 mr-7 text-sm">
+            {e.label}
+          </a>
+        </Link>
+      );
+    }))
+  ) : (
+    <></>
+  );
   return (
-    <div id="Nav" className="flex justify-between items-center">
+    <div id={styles.Nav} className="flex justify-between items-center">
       <Link href="/">
-        <img id="logo" className="ml-7" src={Logo.url} />
+        <img id={styles.logo} className="ml-10" src={Logo.url} />
       </Link>
 
-      <div className="flex items-center">{itemsOfNav}</div>
+      <div id={styles.menuDesktop} className="flex items-center">
+        {itemsOfNav}
+      </div>
     </div>
   );
 };
