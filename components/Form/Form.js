@@ -4,7 +4,7 @@ import Button from "../Button";
 import styles from "./form.module.css";
 import Select from "../Inputs/Select";
 
-const Form = ({ onChange, onBlur, dataInputs, onSubmit, width, errors }) => {
+const Form = ({ onChange, onBlur, dataInputs, onSubmit, width, errors, touched }) => {
   const inputs = dataInputs.map((sectionform, i) => {
     return (
       <div key={i}>
@@ -21,6 +21,7 @@ const Form = ({ onChange, onBlur, dataInputs, onSubmit, width, errors }) => {
                 value={input.value}
                 options={input.options}
                 error={errors[input.name]}
+                touched={touched ? touched[input.name] : false}
               />
             </div>
           ) : (
@@ -35,6 +36,7 @@ const Form = ({ onChange, onBlur, dataInputs, onSubmit, width, errors }) => {
                 onBlur={(event) => onBlur({ event, input, index })}
                 width="100%"
                 error={errors[input.name]}
+                touched={touched ? touched[input.name] : false}
               />
             </div>
           );

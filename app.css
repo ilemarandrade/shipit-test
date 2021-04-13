@@ -37,3 +37,10 @@ input[type="number"] {
 input:focus {
   border: none;
 }
+select {
+  font-size: 1em;
+  border: none !important;
+  outline: none;
+  cursor: pointer;
+  text-align: start;
+}

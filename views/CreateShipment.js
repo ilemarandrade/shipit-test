@@ -34,6 +34,7 @@ const ViewCreateShipment = () => {
             onBlur={({ event }) => formik.handleBlur(event)}
             click={() => {}}
             errors={formik.errors}
+            touched={formik.touched}
           />
         }
         title="Creador de envio:"

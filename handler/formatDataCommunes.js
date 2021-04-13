@@ -34,7 +34,6 @@ export const communesNameId = (data) => {
 
 export const quoteDataFormatForResult = (data) => {
   let result = [[], []];
-  console.log(data);
   try {
     let lowerPrice = data.lower_price;
     if (data) {
