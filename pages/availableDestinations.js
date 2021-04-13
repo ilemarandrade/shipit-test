@@ -7,10 +7,7 @@ import { useSelector } from "react-redux";
 
 function availableDestinations({}) {
   let dataCommunes = useSelector((state) => state.communesData.data);
-  let dataFormat = couriersAvailables(dataCommunes, [
-    "name",
-    "couriers_availables",
-  ]);
+  let dataFormat = couriersAvailables(dataCommunes);
   return (
     <div className="container">
       <Head>

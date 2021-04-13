@@ -1,35 +1,33 @@
 import React from "react";
 import styles from "./inputs.module.css";
-const Select = ({ data = propsSelect.data, width = "100%", validator }) => {
-  const itemsOptions = data.options.map((item, i) => {
+const Select = ({ width = "100%", error, options, label, id, onChange, onBlur, placeholder }) => {
+  const itemsOptions = options.map((item, i) => {
     return (
-      <option key={i + item.value} value={item.value}>
+      <option key={i} value={item.id}>
         {item.name}
       </option>
     );
   });
   return (
     <div className="mb-5" style={{ width: width }}>
-      <label
-        htmlFor={data.id}
-        className={`${styles.label} block text-sm font-medium text-gray-700`}
-      >
-        {data.label}
+      <label htmlFor={id} className={`${label} block text-sm font-medium text-gray-700`}>
+        {label}
       </label>
 
-      <div
-        className={`${styles.inputContainer} mt-1 relative rounded-md shadow-sm`}
-      >
+      <div className={`${styles.inputContainer} mt-1 relative rounded-md shadow-sm`}>
         <select
-          id={data.id}
-          name={data.id}
-          value="0"
+          id={id}
+          name={id}
+          onChange={onChange}
+          onBlur={onBlur}
+          placeholder={placeholder}
           className="focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
         >
-          <option value="0">{data.placeholder}</option>
+          <option defaultValue>{placeholder}</option>
           {itemsOptions}
         </select>
       </div>
+      {error ? <div className="text-red-600 text-xs">{error}</div> : null}
     </div>
   );
 };
