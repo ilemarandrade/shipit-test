@@ -18,7 +18,6 @@ export default async function requestQuote(values) {
       algorithm_days: "2",
     },
   };
-  console.log(raw);
 
   var requestOptions = {
     method: "POST",
@@ -35,6 +34,5 @@ export default async function requestQuote(values) {
       notFound: true,
     };
   }
-  console.log(data);
   return data;
 }

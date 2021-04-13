@@ -17,7 +17,7 @@ export async function requestCommunes(context) {
   const res = await fetch("https://api.shipit.cl/v/communes", requestOptions);
 
   const data = await res.json();
-  console.log(data);
+
   if (!data) {
     return {
       notFound: true,

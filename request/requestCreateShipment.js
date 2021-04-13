@@ -1,5 +1,4 @@
 export default async function requestCreateShipment(values) {
-  console.log(values);
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append("Accept", "application/vnd.shipit.v4");
@@ -53,7 +52,7 @@ export default async function requestCreateShipment(values) {
   };
 
   const res = await fetch("https://api.shipit.cl/v/shipments", requestOptions);
-  console.log(res);
+
   const data = await res;
   if (data.status == 400) {
     alert("Algo ha fallado");

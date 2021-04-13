@@ -5,10 +5,12 @@ import Loading from "../loading";
 
 const Main = ({ children, title }) => {
   const isLoading = useSelector((state) => state.loading.loading);
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <div id={styles.main} className="pt-5">
       <h1 className="ml-7 text-indigo-900 font-semibold ">{title}</h1>
-      {isLoading ? <Loading /> : children}
+      {children}
     </div>
   );
 };

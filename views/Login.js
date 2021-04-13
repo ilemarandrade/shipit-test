@@ -13,19 +13,30 @@ const Login = () => {
   const store = useSelector((state) => state.authenticated);
   const router = useRouter();
   const dataForm = forms().formLogin;
+
   const { initialValues, validations } = useCreateForm(dataForm);
+
   const formik = useFormik({
     initialValues: initialValues,
     validationSchema: Yup.object(validations),
     onSubmit: async (values) => {
-      await requestLogin();
+      await requestLogin(values);
     },
   });
+
   useEffect(() => {
     if (store.authenticated) {
       router.push("/home");
     }
   }, [store.authenticated]);
+
+  const onBlur = ({ event, input, index }) => {
+    formik.handleBlur(event);
+  };
+
+  const onChange = ({ event, input, index }) => {
+    formik.handleChange(event);
+  };
 
   return (
     <>
@@ -33,15 +44,13 @@ const Login = () => {
         contentMain={
           <Form
             dataInputs={dataForm}
-            onChange={({ event }) => formik.handleChange(event)}
+            onChange={onChange}
             onSubmit={formik.handleSubmit}
-            onBlur={({ event }) => formik.handleBlur(event)}
+            onBlur={onBlur}
             width="30%"
             click={requestLogin}
-            errors={{
-              email: "",
-              password: "",
-            }}
+            errors={formik.errors}
+            touched={formik.touched}
           />
         }
         title={""}

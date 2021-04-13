@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./inputs.module.css";
-const Select = ({ width = "100%", error, options, label, id, onChange, onBlur, placeholder }) => {
+const Select = ({ width = "100%", error, touched, options, label, id, onChange, onBlur, placeholder }) => {
   const itemsOptions = options.map((item, i) => {
     return (
       <option key={i} value={item.id}>
@@ -27,7 +27,7 @@ const Select = ({ width = "100%", error, options, label, id, onChange, onBlur, p
           {itemsOptions}
         </select>
       </div>
-      {error ? <div className="text-red-600 text-xs">{error}</div> : null}
+      {error && touched ? <div className="text-red-600 text-xs">{error}</div> : null}
     </div>
   );
 };

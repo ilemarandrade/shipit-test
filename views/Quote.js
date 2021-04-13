@@ -26,7 +26,6 @@ const ViewQuote = () => {
       router.push("/resultOfQuote");
     },
   });
-
   useEffect(() => {
     getStore.loading.loading && store.dispatch(loadingActions(false));
   }, []);
@@ -41,6 +40,7 @@ const ViewQuote = () => {
             onBlur={({ event }) => formik.handleBlur(event)}
             click={() => {}}
             errors={formik.errors}
+            touched={formik.touched}
           />
         }
         title={"Cotizacion de envio:"}
