@@ -8,7 +8,7 @@ import useCreateForm from "../hooks/useCreateForm";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import requestQuote from "../request/requestQuote";
-import request from "../request/request";
+import quoteRequestHandler from "../request/quoteRequestHandler";
 import store from "../redux/store";
 import { loadingActions } from "../redux/actions/loadingActions";
 
@@ -22,7 +22,7 @@ const ViewQuote = () => {
     initialValues: initialValues,
     validationSchema: Yup.object(validations),
     onSubmit: async (values) => {
-      const res = await request(requestQuote(values));
+      const res = await quoteRequestHandler(requestQuote(values));
       router.push("/resultOfQuote");
     },
   });

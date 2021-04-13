@@ -8,7 +8,7 @@ import useCreateForm from "../hooks/useCreateForm";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import requestCreateShipment from "../request/requestCreateShipment";
-import requestDos from "../request/requestDos";
+import createShipmentHandlerRequest from "../request/createShipmentHandlerRequest";
 
 const ViewCreateShipment = () => {
   const router = useRouter();
@@ -19,8 +19,7 @@ const ViewCreateShipment = () => {
     initialValues: initialValues,
     validationSchema: Yup.object(validations),
     onSubmit: async (values) => {
-      const res = await requestDos(requestCreateShipment(values));
-      // router.push("/resultOfQuote");
+      const res = await createShipmentHandlerRequest(requestCreateShipment(values));
     },
   });
   return (

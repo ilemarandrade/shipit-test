@@ -2,10 +2,10 @@ import store from "../redux/store";
 import { loadingActions } from "../redux/actions/loadingActions";
 import { quoteDataActions } from "../redux/actions/quoteDataActions";
 
-const request = async (request, actions) => {
-  store.dispatch(loadingActions(true));
-  const data = await request;
+const quoteRequestHandler = async (request, actions) => {
   try {
+    store.dispatch(loadingActions(true));
+    const data = await request;
     if (data) {
       actions && actions;
       store.dispatch(quoteDataActions(data));
@@ -14,4 +14,4 @@ const request = async (request, actions) => {
     alert(e);
   }
 };
-export default request;
+export default quoteRequestHandler;

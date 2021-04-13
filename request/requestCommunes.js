@@ -1,3 +1,4 @@
+import { urlCommunes } from "./endPoints";
 export async function requestCommunes(context) {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -14,7 +15,7 @@ export async function requestCommunes(context) {
     redirect: "follow",
   };
 
-  const res = await fetch("https://api.shipit.cl/v/communes", requestOptions);
+  const res = await fetch(urlCommunes, requestOptions);
 
   const data = await res.json();
 

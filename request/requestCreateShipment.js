@@ -1,3 +1,4 @@
+import { createShipments } from "./endPoints";
 export default async function requestCreateShipment(values) {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -51,13 +52,14 @@ export default async function requestCreateShipment(values) {
     redirect: "follow",
   };
 
-  const res = await fetch("https://api.shipit.cl/v/shipments", requestOptions);
+  const res = await fetch(createShipments, requestOptions);
 
   const data = await res;
   if (data.status == 400) {
     alert("Algo ha fallado");
     return data;
   }
+  alert("Envio exitoso");
   return {
     notFound: true,
   };

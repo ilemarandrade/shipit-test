@@ -1,5 +1,5 @@
 import { ADD_DATA_COMMUNES } from "../actions/communesDataActions";
-const stateInitial = { data: {} };
+const stateInitial = { data: [] };
 const communesDataReducer = (state = stateInitial, action) => {
   switch (action.type) {
     case ADD_DATA_COMMUNES:

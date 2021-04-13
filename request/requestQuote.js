@@ -1,3 +1,4 @@
+import { urlQuote } from "./endPoints";
 export default async function requestQuote(values) {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -26,7 +27,7 @@ export default async function requestQuote(values) {
     redirect: "follow",
   };
 
-  const res = await fetch("https://api.shipit.cl/v/rates", requestOptions);
+  const res = await fetch(urlQuote, requestOptions);
 
   const data = await res.json();
   if (!data) {
